@@ -39,6 +39,7 @@ const massageServices = {
       "Ökad energi",
       "Mental klarhet"
     ],
+    warning: "",
   },
   "bamboo-massage": {
     name: "Bamboo Massage",
@@ -55,6 +56,7 @@ const massageServices = {
       "Ökad rörlighet",
       "Avstressande"
     ],
+    warning: "",
   },
   "fotmassage": {
     name: "Fotmassage",
@@ -71,6 +73,7 @@ const massageServices = {
       "Lindring av huvudvärk",
       "Ökad energi"
     ],
+    warning: "",
   },
   "graviditet-massage": {
     name: "Graviditet Massage",
@@ -104,6 +107,7 @@ const massageServices = {
       "Bättre sömn",
       "Stressreducering"
     ],
+    warning: "",
   },
   "kalebas-massage": {
     name: "Kalebas Massage",
@@ -120,6 +124,7 @@ const massageServices = {
       "Traditionell teknik",
       "Djup avslappning"
     ],
+    warning: "",
   },
   "klassisk-massage": {
     name: "Klassisk Massage",
@@ -136,6 +141,7 @@ const massageServices = {
       "Smärtlindring",
       "Bättre sömn"
     ],
+    warning: "",
   },
   "rungu-massage": {
     name: "Rungu Massage",
@@ -152,6 +158,7 @@ const massageServices = {
       "Muskelstimulering",
       "Djup behandling"
     ],
+    warning: "",
   },
   "stressmassage": {
     name: "Stressmassage",
@@ -168,6 +175,7 @@ const massageServices = {
       "Ökad energi",
       "Mental klarhet"
     ],
+    warning: "",
   },
 }
 

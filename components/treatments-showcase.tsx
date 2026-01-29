@@ -235,53 +235,56 @@ export function TreatmentsShowcase() {
           </p>
         </div>
 
-        {/* Treatments Grid */}
+        {/* Treatments Grid - Clean card layout */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {displayedTreatments.map((treatment, index) => (
             <Link
               key={treatment.id}
               href={`/tjanster/${treatment.slug}`}
-              className="group relative overflow-hidden rounded-3xl bg-card aspect-[16/10]"
+              className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <Image
-                src={treatment.image || "/placeholder.svg"}
-                alt={treatment.name}
-                fill
-                className="object-cover transition-all duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/95 via-foreground/60 to-foreground/20 group-hover:from-foreground/98 transition-all duration-500" />
-              
-              {/* Price tag */}
-              <div className="absolute top-6 right-6 px-4 py-2 bg-card/95 backdrop-blur-sm rounded-full text-foreground font-bold shadow-lg">
-                {treatment.price}
+              {/* Image container - separate from content */}
+              <div className="relative h-48 sm:h-56 overflow-hidden">
+                <Image
+                  src={treatment.image || "/placeholder.svg"}
+                  alt={treatment.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Light gradient only at bottom for smooth transition */}
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-card to-transparent" />
+                
+                {/* Price and duration badges */}
+                <div className="absolute top-4 right-4 flex gap-2">
+                  <span className="px-3 py-1.5 bg-primary text-primary-foreground text-sm font-semibold rounded-full shadow-md">
+                    {treatment.duration}
+                  </span>
+                  <span className="px-3 py-1.5 bg-card text-foreground text-sm font-bold rounded-full shadow-md">
+                    {treatment.price}
+                  </span>
+                </div>
               </div>
               
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <h3 className="text-2xl lg:text-3xl font-serif font-bold text-card">
-                      {treatment.name}
-                    </h3>
-                    <span className="px-3 py-1 bg-primary/20 backdrop-blur-sm rounded-full text-sm text-primary-foreground">
-                      {treatment.duration}
-                    </span>
-                  </div>
-                  
-                  <p className="text-card/90 leading-relaxed line-clamp-2">
-                    {treatment.description}
+              {/* Content - clean white/cream background */}
+              <div className="p-5 sm:p-6">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {treatment.name}
+                </h3>
+                
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-2 mb-3">
+                  {treatment.description}
+                </p>
+                
+                {treatment.note && (
+                  <p className="text-xs sm:text-sm text-primary/80 italic mb-3 line-clamp-2">
+                    {treatment.note}
                   </p>
-                  
-                  {treatment.note && (
-                    <p className="text-sm text-card/70 italic">
-                      {treatment.note}
-                    </p>
-                  )}
-                  
-                  <div className="flex items-center gap-2 pt-2 text-primary font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-                    <span>Läs mer</span>
-                    <ArrowRight className="h-5 w-5" />
-                  </div>
+                )}
+                
+                <div className="flex items-center gap-2 text-primary font-semibold text-sm">
+                  <span>Läs mer</span>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </Link>
